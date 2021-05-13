@@ -24,6 +24,7 @@
     --big-font-size: 3.5rem;
     --medium-font-size: 2rem;
     --h2-font-size: 1.25rem;
+    --topic-font-size: 1.4rem;
     --normal-font-size: .938rem;
     --small-font-size: .813rem;
 }
@@ -363,6 +364,9 @@ img{
 }
 .portfolio__link-name{
     color: var(--dark-color);
+    font-size: var(--topic-font-size);
+    text-align: center;
+    justify: center;
 }
 /* ==== ASSIGNMENT PAGE ====*/
 .gallery {
