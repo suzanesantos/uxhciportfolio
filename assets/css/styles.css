@@ -388,16 +388,17 @@ img{
     display: block;
      margin-left: auto;
      margin-right: auto;
-     width: 50%;
+     width: 70%;
 }
 .assignment__link{
     color: var(--link-color);
 }
 
-.assignment__video {
-    width: 50%; /*or whatever % you prefer*/
-       margin: 0 auto;
-       display: block;
+.assignment__video video {
+    display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 70%;
 }
 /* ===== CONTACT =====*/
 .contact__container{
