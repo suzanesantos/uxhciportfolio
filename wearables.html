@@ -244,9 +244,42 @@
                                                         <p>Here the task required that the green LED pin and the yellow LED pin power alternate, as they fade in and out. That was possible by using the input of a potentiometer, to power the LED pins and print out the sensor values. This exercise showed how to employ an analog input to regulate an analog output. In order to alternate the output, the brightness equation of Exercise 4 was added to create this effect.  </p>
                                                         <br>
                                                         
-                                                            <div class="assignment__img">
-                                                            <img src="assets/img/exercise6c.png" alt="">
-                                                            </div>
+<p>Arduino Code:</p>
+<pre>
+<font color="#00979c">float</font> <font color="#000000">sensorValue</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font>
+<font color="#00979c">int</font> <font color="#000000">sensorPin</font> <font color="#434f54">=</font> <font color="#000000">A0</font><font color="#000000">;</font>
+<font color="#00979c">int</font> <font color="#000000">greenLed</font> <font color="#434f54">=</font> <font color="#000000">10</font><font color="#000000">;</font>
+<font color="#00979c">int</font> <font color="#000000">yellowLed</font> <font color="#434f54">=</font> <font color="#000000">9</font><font color="#000000">;</font>
+
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">sensorPin</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;<font color="#434f54">&#47;&#47; set the the sensor pin to input</font>
+<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">greenLed</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;<font color="#434f54">&#47;&#47; set the LED pin to output</font>
+<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">yellowLed</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; set the LED pin to output</font>
+<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; start a serial connection</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ <font color="#000000">sensorValue</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">sensorPin</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; read the value&#47;current on the sensor pin and</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; store that value in the variable sensorValue</font>
+ <font color="#000000">sensorValue</font> <font color="#434f54">=</font> <font color="#d35400">map</font><font color="#000000">(</font><font color="#000000">sensorValue</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">1023</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">255</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; rescales the sensor value to 0-255</font>
+ <b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;sensor = &#34;</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; print out the text &#34;sensor = &#34; to the serial</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">sensorValue</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; print out sensorValue to the Serial Monitor</font>
+ 
+<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">greenLed</font><font color="#434f54">,</font> <font color="#000000">sensorValue</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;<font color="#434f54">&#47;&#47; send power to the LED</font>
+<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">yellowLed</font><font color="#434f54">,</font> <font color="#000000">sensorValue</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; send power to the LED</font>
+ 
+ <font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">20</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; delay for 0.2 seconds</font>
+ 
+<font color="#5e6d03">for</font> <font color="#000000">(</font><font color="#00979c">int</font> <font color="#000000">brightness</font><font color="#434f54">=</font><font color="#000000">0</font><font color="#000000">;</font> <font color="#000000">brightness</font> <font color="#434f54">&lt;</font><font color="#000000">256</font><font color="#000000">;</font> <font color="#000000">brightness</font><font color="#434f54">++</font><font color="#000000">)</font><font color="#000000">{</font>
+ <font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">greenLed</font><font color="#434f54">,</font> <font color="#000000">brightness</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">yellowLed</font><font color="#434f54">,</font> <font color="#000000">255</font><font color="#434f54">-</font><font color="#000000">brightness</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;</font>
+ <font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">10</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">}</font>
+<font color="#000000">}</font>
+
+</pre>
                                                             <br>
                                                             <div class="assignment__video">
                                                                 <video  width="520" height="440" controls >
@@ -263,9 +296,42 @@
                                                                 <p>This exercise was simple but funny. Here we start to see more than lights blinking, we see images being displayed. That was achievable with a LED Matrix component.  To configure it we used a couple of functions, such as setRow (for the rows) and setCol (for the columns). A code was provided so we could make a smiley face and a frowny face be displayed on the LED matrix. The image displayed will alternate each second. </p>
                                                                 <br>
                                                                 
-                                                                    <div class="assignment__img">
-                                                                    <img src="assets/img/exercise7a.png" alt="">
-                                                                    </div>
+<p>Arduino Code:</p>
+<pre>
+<font color="#5e6d03">#include</font> <font color="#005c5f">&#34;LedControl.h&#34;</font>
+<font color="#95a5a6">&#47;*</font>
+<font color="#95a5a6">DIN connects to pin 12</font>
+<font color="#95a5a6">CLK connects to pin 11</font>
+<font color="#95a5a6">CS connects to pin 10</font>
+<font color="#95a5a6">*&#47;</font>
+<b><font color="#d35400">LedControl</font></b> <font color="#000000">lc</font> <font color="#434f54">=</font> <b><font color="#d35400">LedControl</font></b><font color="#000000">(</font><font color="#000000">12</font><font color="#434f54">,</font><font color="#000000">11</font><font color="#434f54">,</font><font color="#000000">10</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; create a new LedControl object</font>
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">shutdown</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#00979c">false</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Turn matrix on, no power saving</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setIntensity</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">8</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Set brightness to a medium value</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">clearDisplay</font><font color="#000000">(</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Clear the display</font>
+<font color="#000000">}</font>
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+<font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">B00111100</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; set the first row of the matrix</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#434f54">,</font><font color="#000000">B01000010</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; set the second row of the matrix</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">2</font><font color="#434f54">,</font><font color="#000000">B10100101</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; etc.</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">3</font><font color="#434f54">,</font><font color="#000000">B10000001</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">B10100101</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">5</font><font color="#434f54">,</font><font color="#000000">B10011001</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">6</font><font color="#434f54">,</font><font color="#000000">B01000010</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">7</font><font color="#434f54">,</font><font color="#000000">B00111100</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">B00111100</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#434f54">,</font><font color="#000000">B01000010</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">2</font><font color="#434f54">,</font><font color="#000000">B10100101</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">3</font><font color="#434f54">,</font><font color="#000000">B10000001</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">B10011001</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">5</font><font color="#434f54">,</font><font color="#000000">B10100101</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">6</font><font color="#434f54">,</font><font color="#000000">B01000010</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#000000">lc</font><font color="#434f54">.</font><font color="#d35400">setRow</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">7</font><font color="#434f54">,</font><font color="#000000">B00111100</font><font color="#000000">)</font><font color="#000000">;</font>
+ <font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+</pre>
                                                                     <br>
                                                                     <div class="assignment__video">
                                                                         <video  width="520" height="440" controls >
