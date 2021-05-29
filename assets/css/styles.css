@@ -390,6 +390,13 @@ img{
      margin-right: auto;
      width: 70%;
 }
+.assignment__code {
+    justify-items: center;
+    text-align:center;
+
+}
+
+
 .assignment__link{
     color: var(--link-color);
 }
