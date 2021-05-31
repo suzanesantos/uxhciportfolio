@@ -533,6 +533,8 @@ img{
     .nav{
         height: calc(var(--header-height) + 1rem);
     }
+   
+    
     .nav__list{
         display: flex;
     }
