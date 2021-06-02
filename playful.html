@@ -373,6 +373,178 @@ function&nbsp;<span style="color: #006699;"><b>draw</b></span>() {
                                   
                                         
                                         <br>
+                                        <br>
+                                        <strong>Exercise 5 C</strong>
+                                        <br>
+                                <br>
+                                        <p>For this exercise, I added a random color to the sketch code and removed the blue color from the RGB. </p>
+                                        <br>
+                                        
+                                                                            
+            <p>p5.js Code:</p>
+
+            <pre>
+            function&nbsp;<span style="color: #006699;"><b>setup</b></span>() {
+            &nbsp;&nbsp;createCanvas(400,&nbsp;400);
+            }
+
+            function&nbsp;<span style="color: #006699;"><b>draw</b></span>() {
+            &nbsp;&nbsp;<span style="color: #669900;">if</span> (mouseIsPressed) {
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">fill</span>(255, 255, 255);
+            &nbsp;&nbsp;}&nbsp;<span style="color: #669900;">else</span> {
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">fill</span>(<span style="color: #006699;">random</span>(255), <span style="color: #006699;">random</span>(255), <span style="color: #006699;">random</span>(0));
+            &nbsp;&nbsp;}
+            &nbsp;&nbsp;<span style="color: #006699;">ellipse</span>(<span style="color: #D94A7A;">mouseX</span>, <span style="color: #D94A7A;">mouseY</span>, 80, 80);
+            }
+
+            </pre>
+                    <div class="assignment__video">
+                                <video  width="520" height="440" controls >
+                                    <source src="exercise5c.mp4" type="video/mp4">
+                                      <source src="movie.ogg" type="video/ogg">
+                                      Your browser does not support the video tag.
+                                    </video>
+                            </div>
+                            <br>
+                            <br>
+                                              
+                                              <br>
+                                              <br>
+                                              <strong>Exercise 5 E</strong>
+                                              <br>
+                                      <br>
+                                              <p>For this task I combined two machine learning model codes, <a href="https://learn.ml5js.org/#/reference/face-api" class="assignment__link" target="_blank">faceapi</a> and <a href="https://learn.ml5js.org/#/reference/handpose" class="assignment__link" target="_blank">handpose</a>. Faceapi will detect some face landmarks, such as mouth, nose and jaw, by outlining them. Handpose, on the other, will detect palm and track hand-skeleton, by placing 21 3D keypoints on the hand.</p>
+                                              <br>
+                                              <p>For the faceapi, I changed the color of the eyes, mouth (besides its stroke weight) of the original code, and added a jaw outline to my extended code. To make it a bit more interessant, I added the handpose model to experience both models.</p>
+                                              <br>
+<pre>
+function&nbsp;modelReady()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;console.<span style="color: #006699;">log</span>(<span style="color: #7D4793;">&apos;ready!&apos;</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;console.<span style="color: #006699;">log</span>(faceapi)
+&nbsp;&nbsp;&nbsp;&nbsp;console.<span style="color: #006699;">log</span>(handpose)
+&nbsp;&nbsp;&nbsp;&nbsp;faceapi.detect(gotResults)
+}
+
+function&nbsp;gotResults(err,&nbsp;result)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">if</span> (err) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.<span style="color: #006699;">log</span>(err)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #33997E;">return</span>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666;">// console.log(result)</span>
+&nbsp;&nbsp;&nbsp;&nbsp;detections&nbsp;=&nbsp;result;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666;">// background(220);</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">background</span>(255);
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">image</span>(video, 0,0, <span style="color: #D94A7A;">width</span>, <span style="color: #D94A7A;">height</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">if</span> (detections) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">if</span> (detections.<span style="color: #33997E;">length</span> &gt; 0) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666;">// console.log(detections)</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawBox(detections)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawLandmarks(detections)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;faceapi.detect(gotResults)
+}
+function&nbsp;drawBox(detections){
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span>(let i = 0; i &lt; detections.<span style="color: #33997E;">length</span>; i++){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;alignedRect&nbsp;=&nbsp;detections[i].alignedRect;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;x&nbsp;=&nbsp;alignedRect._box._x
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;y&nbsp;=&nbsp;alignedRect._box._y
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;boxWidth&nbsp;=&nbsp;alignedRect._box._width
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;boxHeight&nbsp;&nbsp;=&nbsp;alignedRect._box._height
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">noFill</span>();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">stroke</span>(161, 95, 255);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">strokeWeight</span>(2);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">rect</span>(x, y, boxWidth, boxHeight);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;
+}
+function&nbsp;drawLandmarks(detections){
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">noFill</span>();
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">stroke</span>(161, 95, 251)
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">strokeWeight</span>(2)
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span>(let i = 0; i &lt; detections.<span style="color: #33997E;">length</span>; i++){
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;nose&nbsp;=&nbsp;detections[i].parts.nose;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;rightEyeBrow&nbsp;=&nbsp;detections[i].parts.rightEyeBrow;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;leftEyeBrow&nbsp;=&nbsp;detections[i].parts.leftEyeBrow;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(nose,&nbsp;<span style="color: #33997E;">false</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(leftEyeBrow,&nbsp;<span style="color: #33997E;">false</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(rightEyeBrow,&nbsp;<span style="color: #33997E;">false</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">stroke</span>(255, 0, 0)
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">strokeWeight</span>(3)
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span>(let i = 0; i &lt; detections.<span style="color: #33997E;">length</span>; i++){
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;mouth&nbsp;=&nbsp;detections[i].parts.mouth;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(mouth,&nbsp;<span style="color: #33997E;">true</span>);
+}
+&nbsp;&nbsp;<span style="color: #006699;">stroke</span>(200, 200,200)
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">strokeWeight</span>(2)
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span>(let i = 0; i &lt; detections.<span style="color: #33997E;">length</span>; i++){
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;rightEye&nbsp;=&nbsp;detections[i].parts.rightEye;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;leftEye&nbsp;=&nbsp;detections[i].parts.leftEye;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(leftEye,&nbsp;<span style="color: #33997E;">true</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(rightEye,&nbsp;<span style="color: #33997E;">true</span>);
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;<span style="color: #006699;">stroke</span>(255, 255,0)
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">strokeWeight</span>(2)
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span>(let i = 0; i &lt; detections.<span style="color: #33997E;">length</span>; i++){
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;jawOutline&nbsp;=&nbsp;detections[i].parts.jawOutline;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(jawOutline,&nbsp;<span style="color: #33997E;">false</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+function&nbsp;drawPart(feature,&nbsp;closed){
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">beginShape</span>();
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span>(let i = 0; i &lt; feature.<span style="color: #33997E;">length</span>; i++){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;x&nbsp;=&nbsp;feature[i]._x
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;y&nbsp;=&nbsp;feature[i]._y
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">vertex</span>(x, y)
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">if</span>(closed === <span style="color: #33997E;">true</span>){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">endShape</span>(<span style="color: #718A62;">CLOSE</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #669900;">else</span> {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">endShape</span>();
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+&nbsp;&nbsp;function&nbsp;<span style="color: #006699;"><b>draw</b></span>() {
+&nbsp;&nbsp;<span style="color: #666666;">// We can call both functions to draw all keypoints and the skeletons</span>
+&nbsp;&nbsp;drawKeypoints();
+}
+&nbsp;&nbsp;
+&nbsp;&nbsp;function&nbsp;drawKeypoints()&nbsp;{
+&nbsp;&nbsp;<span style="color: #669900;">for</span> (let i = 0; i &lt; predictions.<span style="color: #33997E;">length</span>; i += 1) {
+&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;prediction&nbsp;=&nbsp;predictions[i];
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span> (let j = 0; j &lt; prediction.landmarks.<span style="color: #33997E;">length</span>; j += 1) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;keypoint&nbsp;=&nbsp;prediction.landmarks[j];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">fill</span>(0, 255, 0);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">noStroke</span>();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">ellipse</span>(keypoint[0], keypoint[1], 5, 5);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+}
+
+</pre>
               </div>
             
             </section>
