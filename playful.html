@@ -466,11 +466,9 @@ function&nbsp;drawLandmarks(detections){
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span>(let i = 0; i &lt; detections.<span style="color: #33997E;">length</span>; i++){
 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;nose&nbsp;=&nbsp;detections[i].parts.nose;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;rightEyeBrow&nbsp;=&nbsp;detections[i].parts.rightEyeBrow;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;leftEyeBrow&nbsp;=&nbsp;detections[i].parts.leftEyeBrow;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -480,12 +478,10 @@ function&nbsp;drawLandmarks(detections){
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(rightEyeBrow,&nbsp;<span style="color: #33997E;">false</span>);
 &nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">stroke</span>(255, 0, 0)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">stroke</span>(255, 0, 0)
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">strokeWeight</span>(3)
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span>(let i = 0; i &lt; detections.<span style="color: #33997E;">length</span>; i++){
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;mouth&nbsp;=&nbsp;detections[i].parts.mouth;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(mouth,&nbsp;<span style="color: #33997E;">true</span>);
@@ -493,14 +489,12 @@ function&nbsp;drawLandmarks(detections){
 &nbsp;&nbsp;<span style="color: #006699;">stroke</span>(200, 200,200)
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">strokeWeight</span>(2)
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span>(let i = 0; i &lt; detections.<span style="color: #33997E;">length</span>; i++){
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;rightEye&nbsp;=&nbsp;detections[i].parts.rightEye;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;rightEye&nbsp;=&nbsp;detections[i].parts.rightEye;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;leftEye&nbsp;=&nbsp;detections[i].parts.leftEye;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(leftEye,&nbsp;<span style="color: #33997E;">true</span>);
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(rightEye,&nbsp;<span style="color: #33997E;">true</span>);
-&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 &nbsp;&nbsp;<span style="color: #006699;">stroke</span>(255, 255,0)
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">strokeWeight</span>(2)
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span>(let i = 0; i &lt; detections.<span style="color: #33997E;">length</span>; i++){
@@ -508,9 +502,7 @@ function&nbsp;drawLandmarks(detections){
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;jawOutline&nbsp;=&nbsp;detections[i].parts.jawOutline;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drawPart(jawOutline,&nbsp;<span style="color: #33997E;">false</span>);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 }
 function&nbsp;drawPart(feature,&nbsp;closed){
 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -520,8 +512,7 @@ function&nbsp;drawPart(feature,&nbsp;closed){
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;y&nbsp;=&nbsp;feature[i]._y
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">vertex</span>(x, y)
 &nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">if</span>(closed === <span style="color: #33997E;">true</span>){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">if</span>(closed === <span style="color: #33997E;">true</span>){
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">endShape</span>(<span style="color: #718A62;">CLOSE</span>);
 &nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #669900;">else</span> {
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">endShape</span>();
