@@ -88,13 +88,13 @@
                                     </div>
                                 </div>
                                 <br>
-                                <p>Nebula is an interactive wall that displays light in several ways. It was developed by the dutch company NYOYN in partnership with healthcare professionals Zorggroep. Nebula is addressed for adults, and mainly kids. The purpose of the wall is to trigger children to be physically challenged to do exercise, during the therapy procedures. The goal is to make this experience a funny and engaging one. The games comprised into the wall were co-designed with physiotherapists and occupational therapists. For a more open market, the wall presents educational, social, competitive gaming, and motor activities.</p>
+                                <p>Nebula is an interactive wall that displays light in several ways. It was developed by the dutch company NYOYN in partnership with healthcare professionals Zorggroep. Nebula is addressed for adults, and mainly kids. The purpose of the wall is to trigger children to be physically challenged to do exercise, during the therapy procedures.</p>
+                                <br>
+                                <p> The goal is to make this experience a funny and engaging one. The games comprised into the wall were co-designed with physiotherapists and occupational therapists. For a more open market, the wall presents educational, social, competitive gaming, and motor activities.</p>
                                <br>
                                    
                                 <p>The interactive wall has a capacitive touch sensor, as input technology. The continuous re-imaging of the touch profile is processed between the touch wall layer and the controller.</p>
                                 <br>
-                                        
-                                        <br>
                                   
                                     <p>The output technology used is led lamps which emit light patterns and speakers to emit sound.</p>
                                     <br>
@@ -109,11 +109,7 @@
                   <br>
                   <br>
                      <strong>Assignment C: Reflection</strong>
-                     <br>
-                     <div>
-                         <div class="assignment__img">
-                         <img src="assets/img/wall.png" alt="">
-                         </div>
+                
                     
                      <br>
                      <p>This is an interesting topic as it opens doors for new forms of interaction between users and products/services. However, it is slightly hard, due to the time constraints, to quickly understand it and extend the assignment codes in a more creative and complex way.</p>
@@ -133,7 +129,7 @@
                         <p>As part of the Playful Interaction learning week, I learned a bit more about Processing, which is an open-source programming language and environment for people who creative professionals who want to program interactive images and animations. Some exercises were done with Arduino and some with p5.js</p>
                         <ul>
                             <br>
-                            <br>
+                          
                                 <strong>Exercise 2 F</strong>
                                 <br>
                            
@@ -371,7 +367,6 @@ function&nbsp;<span style="color: #006699;"><b>draw</b></span>() {
                 <br>
                 <br>
                                   
-                                        
                                         <br>
                                         <br>
                                         <strong>Exercise 5 C</strong>
@@ -383,21 +378,21 @@ function&nbsp;<span style="color: #006699;"><b>draw</b></span>() {
                                                                             
             <p>p5.js Code:</p>
 
-            <pre>
-            function&nbsp;<span style="color: #006699;"><b>setup</b></span>() {
-            &nbsp;&nbsp;createCanvas(400,&nbsp;400);
-            }
+<pre>
+function&nbsp;<span style="color: #006699;"><b>setup</b></span>() {
+&nbsp;&nbsp;createCanvas(400,&nbsp;400);
+}
 
-            function&nbsp;<span style="color: #006699;"><b>draw</b></span>() {
-            &nbsp;&nbsp;<span style="color: #669900;">if</span> (mouseIsPressed) {
-            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">fill</span>(255, 255, 255);
-            &nbsp;&nbsp;}&nbsp;<span style="color: #669900;">else</span> {
-            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">fill</span>(<span style="color: #006699;">random</span>(255), <span style="color: #006699;">random</span>(255), <span style="color: #006699;">random</span>(0));
-            &nbsp;&nbsp;}
-            &nbsp;&nbsp;<span style="color: #006699;">ellipse</span>(<span style="color: #D94A7A;">mouseX</span>, <span style="color: #D94A7A;">mouseY</span>, 80, 80);
-            }
+function&nbsp;<span style="color: #006699;"><b>draw</b></span>() {
+&nbsp;&nbsp;<span style="color: #669900;">if</span> (mouseIsPressed) {
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">fill</span>(255, 255, 255);
+&nbsp;&nbsp;}&nbsp;<span style="color: #669900;">else</span> {
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">fill</span>(<span style="color: #006699;">random</span>(255), <span style="color: #006699;">random</span>(255), <span style="color: #006699;">random</span>(0));
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span style="color: #006699;">ellipse</span>(<span style="color: #D94A7A;">mouseX</span>, <span style="color: #D94A7A;">mouseY</span>, 80, 80);
+}
 
-            </pre>
+</pre>
                     <div class="assignment__video">
                                 <video  width="520" height="440" controls >
                                     <source src="exercise5c.mp4" type="video/mp4">
@@ -417,6 +412,11 @@ function&nbsp;<span style="color: #006699;"><b>draw</b></span>() {
                                               <br>
                                               <p>For the faceapi, I changed the color of the eyes, mouth (besides its stroke weight) of the original code, and added a jaw outline to my extended code. To make it a bit more interessant, I added the handpose model to experience both models.</p>
                                               <br>
+                                              <strong>Find the original code here:</strong> <a href="https://editor.p5js.org/ml5/sketches/FaceApi_Video_Landmarks" class="assignment__link" target="_blank">https://editor.p5js.org/ml5/sketches/FaceApi_Video_Landmarks</a>
+                                              <br>
+                                              <br>
+                                              <p>p5.js Code:<p>
+                                             
 <pre>
 function&nbsp;modelReady()&nbsp;{
 &nbsp;&nbsp;&nbsp;&nbsp;console.<span style="color: #006699;">log</span>(<span style="color: #7D4793;">&apos;ready!&apos;</span>)
