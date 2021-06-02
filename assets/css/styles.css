@@ -407,6 +407,21 @@ img{
      margin-right: auto;
      width: 70%;
 }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+    border: 1px solid var(--second-color);
+  text-align: left;
+  padding: 8px;
+}
+pre {
+    font-size: smaller;
+}
+
 /* ===== CONTACT =====*/
 .contact__container{
     row-gap: 2rem;
