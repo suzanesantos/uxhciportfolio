@@ -27,11 +27,14 @@
     --big-font-size: 3.5rem;
     --medium-font-size: 2rem;
     --h2-font-size: 1.25rem;
+    --strong-font-size: 1.25rem;
     --topic-font-size: 1.4rem;
     --normal-font-size: .938rem;
     --small-font-size: .813rem;
 }
-
+strong {
+    font-size: var(--strong-font-size);
+}
 #myBtn {
   display: none;
   position: fixed;
