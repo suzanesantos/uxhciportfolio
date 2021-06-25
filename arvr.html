@@ -162,8 +162,6 @@
                             <br>
                                 <strong>02 Shape</strong>
                                 <br>
-                           
-                            <br>
                                 <p>By using some shapes, I could create this scene. This was possible by adjusting the rings radius and position. To compose the scene I added other shapes such as sphere, plane, cone and box. Other attribution was also used, such as rotation for the cone.
                                 </p>
                                 <br>
@@ -172,6 +170,92 @@
                                     <img src="assets/img/aframe1.jpg" alt="">
                                     </div>
                                     <br>
+<pre>
+<font color="#434f54">&lt;</font><font color="#434f54">!</font><font color="#000000">DOCTYPE</font> <font color="#000000">html</font><font color="#434f54">&gt;</font>
+<font color="#434f54">&lt;</font><font color="#000000">html</font><font color="#434f54">&gt;</font>
+ &nbsp;<font color="#434f54">&lt;</font><font color="#000000">head</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">meta</font> <font color="#000000">charset</font><font color="#434f54">=</font><font color="#005c5f">&#34;utf-8&#34;</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">title</font><font color="#434f54">&gt;</font><font color="#000000">Hello</font><font color="#434f54">,</font> <font color="#000000">WebVR</font><font color="#434f54">!</font> <font color="#000000">•</font> <font color="#000000">A</font><font color="#434f54">-</font><font color="#000000">Frame</font><font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">title</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">meta</font> <font color="#d35400">name</font><font color="#434f54">=</font><font color="#005c5f">&#34;viewport&#34;</font> <font color="#000000">content</font><font color="#434f54">=</font><font color="#005c5f">&#34;width=device-width&#34;</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">script</font> <font color="#000000">src</font><font color="#434f54">=</font><font color="#005c5f">&#34;https:&#47;&#47;aframe.io&#47;releases&#47;1.0.4&#47;aframe.min.js&#34;</font><font color="#434f54">&gt;</font><font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">script</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">script</font> <font color="#000000">src</font><font color="#434f54">=</font><font color="#005c5f">&#34;scripts&#47;main.js&#34;</font> <font color="#000000">defer</font><font color="#434f54">&gt;</font><font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">script</font><font color="#434f54">&gt;</font>
+ &nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">head</font><font color="#434f54">&gt;</font>
+ &nbsp;<font color="#434f54">&lt;</font><font color="#000000">body</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">scene</font> <font color="#000000">background</font><font color="#434f54">=</font><font color="#005c5f">&#34;color: #C7E9FF&#34;</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">box</font> <font color="#000000">id</font><font color="#434f54">=</font><font color="#005c5f">&#34;myBox&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">width</font><font color="#434f54">=</font><font color="#005c5f">&#34;2&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">height</font><font color="#434f54">=</font><font color="#005c5f">&#34;1&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">depth</font><font color="#434f54">=</font><font color="#005c5f">&#34;1&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">position</font><font color="#434f54">=</font><font color="#005c5f">&#34;0 1 -4&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font><font color="#434f54">=</font><font color="#005c5f">&#34;#0096FF&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">shadow</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">box</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">sphere</font> <font color="#000000">id</font><font color="#434f54">=</font><font color="#005c5f">&#34;mySphere&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">width</font><font color="#434f54">=</font><font color="#005c5f">&#34;1&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">height</font><font color="#434f54">=</font><font color="#005c5f">&#34;1&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">=</font><font color="#005c5f">&#34;0.2&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">position</font><font color="#434f54">=</font><font color="#005c5f">&#34;0 2 -4&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font><font color="#434f54">=</font><font color="#005c5f">&#34;#ffff00&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">shadow</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">sphere</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">cone</font> <font color="#000000">id</font><font color="#434f54">=</font><font color="#005c5f">&#34;myCone&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">bottom</font><font color="#434f54">=</font><font color="#005c5f">&#34;0.2&#34;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">position</font><font color="#434f54">=</font><font color="#005c5f">&#34;0 1 -2&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">rotation</font><font color="#434f54">=</font><font color="#005c5f">&#34;-180 0 0&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font><font color="#434f54">=</font><font color="#005c5f">&#34;#80ff00&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">shadow</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">cone</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font><font color="#434f54">=</font><font color="#005c5f">&#34;#FF6663&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">inner</font><font color="#434f54">=</font><font color="#005c5f">&#34;5&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">outer</font><font color="#434f54">=</font><font color="#005c5f">&#34;6&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">position</font><font color="#434f54">=</font><font color="#005c5f">&#34;0 2 -7&#34;</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font><font color="#434f54">=</font><font color="#005c5f">&#34;#FEB144&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">inner</font><font color="#434f54">=</font><font color="#005c5f">&#34;4&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">outer</font><font color="#434f54">=</font><font color="#005c5f">&#34;5&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">position</font><font color="#434f54">=</font><font color="#005c5f">&#34;0 2 -7&#34;</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font><font color="#434f54">=</font><font color="#005c5f">&#34;#FDFD97&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">inner</font><font color="#434f54">=</font><font color="#005c5f">&#34;3&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">outer</font><font color="#434f54">=</font><font color="#005c5f">&#34;4&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">position</font><font color="#434f54">=</font><font color="#005c5f">&#34;0 2 -7&#34;</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font><font color="#434f54">=</font><font color="#005c5f">&#34;#9EE09E&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">inner</font><font color="#434f54">=</font><font color="#005c5f">&#34;2&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">outer</font><font color="#434f54">=</font><font color="#005c5f">&#34;3&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">position</font><font color="#434f54">=</font><font color="#005c5f">&#34;0 2 -7&#34;</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font><font color="#434f54">=</font><font color="#005c5f">&#34;#9EC1CF&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">inner</font><font color="#434f54">=</font><font color="#005c5f">&#34;1&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">outer</font><font color="#434f54">=</font><font color="#005c5f">&#34;2&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">position</font><font color="#434f54">=</font><font color="#005c5f">&#34;0 2 -7&#34;</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font><font color="#434f54">=</font><font color="#005c5f">&#34;#CC99C9&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">inner</font><font color="#434f54">=</font><font color="#005c5f">&#34;0.5&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">radius</font><font color="#434f54">-</font><font color="#000000">outer</font><font color="#434f54">=</font><font color="#005c5f">&#34;1&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">position</font><font color="#434f54">=</font><font color="#005c5f">&#34;0 2 -7&#34;</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">ring</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">plane</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">position</font><font color="#434f54">=</font><font color="#005c5f">&#34;0 0 -4&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">rotation</font><font color="#434f54">=</font><font color="#005c5f">&#34;-90 0 0&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">width</font><font color="#434f54">=</font><font color="#005c5f">&#34;4&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">height</font><font color="#434f54">=</font><font color="#005c5f">&#34;4&#34;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">color</font><font color="#434f54">=</font><font color="#005c5f">&#34;#7BC8A4&#34;</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">plane</font><font color="#434f54">&gt;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">scene</font><font color="#434f54">&gt;</font>
+ &nbsp;
+ &nbsp;<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">body</font><font color="#434f54">&gt;</font>
+<font color="#434f54">&lt;</font><font color="#434f54">&#47;</font><font color="#000000">html</font><font color="#434f54">&gt;</font>
+
+</pre>
+                            <br>
                                         <strong>04 Animation</strong>
                                         <br>
                                 <br>
